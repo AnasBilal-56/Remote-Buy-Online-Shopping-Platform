@@ -22,41 +22,23 @@ public:
         price = p;
     }
 
-    void Display() const
-    {
-        cout << id << "|" << name << "|" << price << "|" << endl;
-    }
+    void Display() const { cout << id << "|" << name << "|" << price << "|" << endl; }
 
-    string getname() const
-    {
-        return name;
-    }
+    string getname() const { return name; }
 
-    int getId() const
-    {
-        return id;
-    }
+    int getId() const { return id; }
 
-    double getPrice() const
-    {
-        return price;
-    }
+    double getPrice() const { return price; }
 
-    void modifyName(string name)
-    {
-        this->name = name;
-    }
+    void modifyName(string name) { this->name = name; }
 
-    void modifyPrice(double price)
-    {
-        this->price = price;
-    }
+    void modifyPrice(double price) { this->price = price; }
 };
 
 class Catalogue
 {
 private:
-    Product* products;
+    Product *products;
     int size;
 
 public:
@@ -71,28 +53,23 @@ public:
 
     void addProduct(Product p)
     {
-        if (size < capacity)
-        {
+        if (size < capacity) {
             products[size++] = p;
-        }
-        else
-        {
+        } else {
             cout << "Catalogue is Full!" << endl;
         }
     }
 
     void showProducts()
     {
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             products[i].Display();
         }
     }
 
     Product getProduct(int id)
     {
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             if (products[i].getId() == id)
                 return products[i];
         }
@@ -101,8 +78,7 @@ public:
 
     Product getProductByName(string name)
     {
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             if (products[i].getname() == name)
                 return products[i];
         }
@@ -111,8 +87,7 @@ public:
 
     bool ProductExists(int id)
     {
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             if (products[i].getId() == id)
                 return true;
         }
@@ -123,23 +98,19 @@ public:
     {
         int index = -1;
 
-        for (int i = 0; i < size; i++)
-        {
-            if (products[i].getId() == id)
-            {
+        for (int i = 0; i < size; i++) {
+            if (products[i].getId() == id) {
                 index = i;
                 break;
             }
         }
 
-        if (index == -1)
-        {
+        if (index == -1) {
             cout << "Product Not Found" << endl;
             return;
         }
 
-        for (int i = index; i < size - 1; i++)
-        {
+        for (int i = index; i < size - 1; i++) {
             products[i] = products[i + 1];
         }
 
@@ -151,10 +122,8 @@ public:
     {
         bool found = false;
 
-        for (int i = 0; i < size; i++)
-        {
-            if (products[i].getId() == id)
-            {
+        for (int i = 0; i < size; i++) {
+            if (products[i].getId() == id) {
                 products[i].modifyName(name);
                 products[i].modifyPrice(price);
                 cout << "Product Updated Successfully" << endl;
@@ -163,21 +132,14 @@ public:
             }
         }
 
-        if (!found)
-        {
+        if (!found) {
             cout << "Product Not Found" << endl;
         }
     }
 
-    int getsize() const
-    {
-        return size;
-    }
+    int getsize() const { return size; }
 
-    bool isempty() const
-    {
-        return size == 0;
-    }
+    bool isempty() const { return size == 0; }
 
     Product getProductAtIndex(int index)
     {
@@ -187,27 +149,22 @@ public:
         return Product(-1, "Not Found", 0);
     }
 
-    ~Catalogue()
-    {
-        delete[] products;
-    }
+    ~Catalogue() { delete[] products; }
 };
 
 class FileManager
 {
 public:
-    void saveProducts(Catalogue& obj)
+    void saveProducts(Catalogue &obj)
     {
         ofstream file("product.txt");
 
-        if (!file)
-        {
+        if (!file) {
             cout << "Error: Unable to open file for writing." << endl;
             return;
         }
 
-        for (int i = 0; i < obj.getsize(); i++)
-        {
+        for (int i = 0; i < obj.getsize(); i++) {
             Product p = obj.getProductAtIndex(i);
             file << p.getId() << "," << p.getname() << "," << p.getPrice() << endl;
         }
@@ -216,12 +173,11 @@ public:
         cout << "Products saved successfully!" << endl;
     }
 
-    void loadProduct(Catalogue& obj)
+    void loadProduct(Catalogue &obj)
     {
         ifstream file("product.txt");
 
-        if (!file)
-        {
+        if (!file) {
             cout << "Error: Unable to open file for reading." << endl;
             return;
         }
@@ -230,8 +186,7 @@ public:
         string name;
         double price;
 
-        while (file >> id)
-        {
+        while (file >> id) {
             file.ignore();
             getline(file, name, ',');
             file >> price;
@@ -246,8 +201,7 @@ public:
     {
         ofstream file("product.txt", ios::app);
 
-        if (!file)
-        {
+        if (!file) {
             cout << "Error: Unable to open file." << endl;
             return;
         }
@@ -262,8 +216,7 @@ public:
     {
         ofstream file("orders.txt", ios::app);
 
-        if (!file)
-        {
+        if (!file) {
             cout << "Error: Unable to open file." << endl;
             return;
         }
@@ -278,8 +231,7 @@ public:
     {
         ifstream file("orders.txt");
 
-        if (!file)
-        {
+        if (!file) {
             cout << "Error: Unable to open file." << endl;
             return;
         }
@@ -290,8 +242,7 @@ public:
 
         cout << "Order History:" << endl;
 
-        while (file >> id)
-        {
+        while (file >> id) {
             file.ignore();
             getline(file, name, ',');
             file >> price;

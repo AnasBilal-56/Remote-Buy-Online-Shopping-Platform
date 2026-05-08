@@ -54,10 +54,7 @@ void CreateAccount() {
 }
 
 // Writes a line into the file
-void writeLine(fstream &file, const string &text)
-{
-    file << text << "\n";
-}
+void writeLine(fstream &file, const string &text){file << text << "\n";}
 
 // Checks if a username already exists (usernames stored unencrypted)
 bool usernameExists(fstream &file, const string &name)

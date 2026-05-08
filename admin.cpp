@@ -1,8 +1,8 @@
 #include "Shoppingheader.h"
 using namespace std;
-//start
+//star
 void initialisegame() {
-    ifstream infile("data.txt");
+    ifstream infile("Logindata.txt");
     ofstream temp("temp.txt");
 
     if (!infile || !temp) {
@@ -31,8 +31,8 @@ void initialisegame() {
     infile.close();
     temp.close();
 
-    remove("data.txt");
-    rename("temp.txt", "data.txt");
+    remove("Logindata.txt");
+    rename("temp.txt", "Logindata.txt");
 
 
     // Now Initialising the global Highscores of the new game in Highscore file
@@ -63,7 +63,7 @@ void initialisegame() {
 }
 
 bool Checkplayerdataintegrity() {
-    ifstream file("data.txt");
+    ifstream file("Logindata.txt");
     if (!file) {
         cout << "Error: cannot open player data file.\n";
         return false;

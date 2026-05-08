@@ -17,13 +17,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="readme added">
-      <change afterPath="$PROJECT_DIR$/admin.cpp" afterDir="false" />
+    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="admin">
+      <change afterPath="$PROJECT_DIR$/Logindata.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.qtcreator/CMakeLists.txt.user" beforeDir="false" afterPath="$PROJECT_DIR$/.qtcreator/CMakeLists.txt.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ui.autosave" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/admin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer_managment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/customer_managment.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,9 @@
 }</component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="guARv7IS" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -97,7 +100,10 @@
       <workItem from="1777452068859" duration="587000" />
       <workItem from="1777758718182" duration="90000" />
       <workItem from="1777802047294" duration="12526000" />
-      <workItem from="1778243764028" duration="1048000" />
+      <workItem from="1778243764028" duration="1607000" />
+      <workItem from="1778245598591" duration="328000" />
+      <workItem from="1778245947292" duration="1420000" />
+      <workItem from="1778255274092" duration="142000" />
     </task>
     <task id="LOCAL-00001" summary="readme added">
       <option name="closed" value="true" />
@@ -107,14 +113,42 @@
       <option name="project" value="LOCAL" />
       <updated>1777815634668</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="admin">
+      <option name="closed" value="true" />
+      <created>1778244820413</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778244820413</updated>
+    </task>
+    <task id="LOCAL-00003" summary="admin">
+      <option name="closed" value="true" />
+      <created>1778244963644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778244963644</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="readme added" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme added" />
+    <MESSAGE value="admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin" />
   </component>
 </project>

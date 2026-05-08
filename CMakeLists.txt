@@ -4,7 +4,7 @@ project(Remote-Buy-Online-Shopping-Platform)
 set(CMAKE_CXX_STANDARD 26)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-add_executable( catalogue.cpp,  cart.cpp, Shoppingheader.h, customer_managment.cpp
+add_executable( catalogue.cpp,  cart.cpp, Shoppingheader.h, customer_managment.cpp, admin.cpp, Main.cpp
 
 )
 

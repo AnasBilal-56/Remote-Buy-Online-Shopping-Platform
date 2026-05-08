@@ -2,25 +2,21 @@
 using namespace std;
 
 // Function to create a new account
-void CreateAccount(){
+void CreateAccount() {
     cout << endl << "Create New Account" << endl;
     string username, password;
-    fstream file("data.txt", ios::in | ios::out | ios::app);
-
-    if (!file) {
-        cout << "file not found!" << endl;
-        return;}
+    fstream file("Logindata.txt", ios::in | ios::out | ios::app);
+    if (!file) { cout << "file not found!" << endl; return;}
 
     // Username
     cout << "Enter name (3-32 char): ";
     getline(cin, username);
-
-    // Validation- No spaces, existing etc
+    // Validation - No spaces, existing etc
     while (!isValidLength(username, 3, 32) || usernameExists(file, username)
            || username.find_first_of(" \t\n") != string::npos) {
         if (!isValidLength(username, 3, 32)) {
-            cout << "Enter a valid length Username (3-32 characters): ";}
-        else if (usernameExists(file, username)) {
+            cout << "Enter a valid length Username (3-32 characters): ";
+        } else if (usernameExists(file, username)) {
             cout << "Username already exists! Enter a different Username (3-32 characters): ";
         } else if (username.find_first_of(" \t\n") != string::npos) {
             cout << "Username cannot contain white spaces. Enter a valid username: ";
@@ -30,11 +26,10 @@ void CreateAccount(){
 
     cout << "Username is available!" << endl;
 
-    file.clear();
-    file.seekp(0, ios::end);
-    // Username is stored UNENCRYPTED
-    writeLine(file, username);
+    file.clear();  file.seekp(0, ios::end);
 
+    // Username stored UNENCRYPTED
+    writeLine(file, username);
     // Password
     cout << "Enter your password (3-32 characters): ";
     getline(cin, password);
@@ -42,24 +37,20 @@ void CreateAccount(){
     while (!isValidLength(password, 3, 32) || !isValidPassword(password)) {
         cout << endl << "Your password may only contain:" << endl;
         cout << "- Uppercase and Lower case letters: A-Z and a-z" << endl;
-        cout << "- Numbers: 0�9" << endl;
+        cout << "- Numbers: 0-9" << endl;
         cout << "- Allowed symbols: ! # $ % & * - + = @ _ " << endl;
         cout << "Spaces and other characters are not allowed." << endl;
         cout << "Please enter a valid password (3-32 characters): ";
         getline(cin, password);
     }
 
-    // Store encrypted password
-    writeLine(file, encrypt(password));
-
-    // Data lines (not encrypted)
-    for (int i = 0; i < MAX_GAMES; i++) {
-        writeLine(file, "0 0 0"); // initial wins, losses, highscore
-    }
-
+    // Store encrypted password (using your existing encrypt() function - simple substitution)
+    string encryptedPass = encrypt(password);
+    writeLine(file, encryptedPass);
+    // Loyalty - start new accounts at 0 (as per your file example)
+    writeLine(file, "0");
     file.close();
-
-    cout << "Account created succesfully";
+    cout << "Account created successfully!" << endl;
 }
 
 // Writes a line into the file
@@ -102,7 +93,7 @@ bool login(string &usernameRef, string &passwordRef)
 {
     string username, password;
 
-    fstream file("data.txt", ios::in);
+    fstream file("Logindata.txt", ios::in);
     if (!file) {
         cout << "Error opening file!" << endl;
         return false;
@@ -188,7 +179,7 @@ void changepassword(string username, string &password)
         getline(cin, newPassword);
     }
 
-    ifstream infile("data.txt");
+    ifstream infile("Logindata.txt");
     ofstream temp("temp.txt");
 
     if (!infile || !temp) {
@@ -217,8 +208,8 @@ void changepassword(string username, string &password)
     infile.close();
     temp.close();
 
-    remove("data.txt");
-    rename("temp.txt", "data.txt");
+    remove("Logindata.txt");
+    rename("temp.txt", "Logindata.txt");
 
     password = newPassword;
 

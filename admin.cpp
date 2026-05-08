@@ -1,6 +1,6 @@
 #include "Shoppingheader.h"
 using namespace std;
-
+//start
 void initialisegame() {
     ifstream infile("data.txt");
     ofstream temp("temp.txt");

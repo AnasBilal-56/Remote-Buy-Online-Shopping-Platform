@@ -8,7 +8,7 @@ Online Shopping Cart- Object-Oriented Programming project
 
 1. Muhammad Anas Bilal (25L-0778)
 2. Ali Khan (25L-0848)
-3. Osama Bin Tahir (25L-0689)
+   3. Osama Bin Tahir (25L-0689)
 4. Muhammad Hamdaan (25L-0911)
 
 ------------------------------------------------------------------------

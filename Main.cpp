@@ -13,7 +13,7 @@ int main() {    // Initial Pseudo Loading screen For file Integrity Checks
     cout << "." << endl;
 
     if (!CheckCustomerdataintegrity()) {
-        cout << REDC << "Player data file corrupted! Please fix or restore backup.\n" << RESET;
+        cout << REDC << "Customer data file corrupted! Please fix or restore backup.\n" << RESET;
         return 1;
     }
 
@@ -29,7 +29,7 @@ int main() {    // Initial Pseudo Loading screen For file Integrity Checks
     // ------------ Main Menu Start ------------
     int option;
     while (true) {
-        system("cls");
+        clearScreen();
         cout << endl << "MAIN MENU: \n" <<"1. Create New account\n";
         cout << "2. Login\n" <<"3. Exit\n"<<"Enter Option number to select: ";
         cin >> option;
@@ -87,13 +87,13 @@ int main() {    // Initial Pseudo Loading screen For file Integrity Checks
                     system("cls");
                     cout << "Exiting program.";
                     this_thread::sleep_for(chrono::milliseconds(500));
-                    system("cls");
+                    clearScreen();
                     cout << "Exiting program..";
                     this_thread::sleep_for(chrono::milliseconds(500));
-                    system("cls");
+                    clearScreen();
                     cout << "Exiting program...";
                     this_thread::sleep_for(chrono::milliseconds(500));
-                    system("cls");
+                    clearScreen();
                     cout << "";
                     return 1;
                 }
@@ -121,7 +121,7 @@ void CustomerMenu(string& username, string& password) {
 
     while (!logout) {
         // Clearing Window Before each Display
-        system("cls");
+        clearScreen();
         cout << "CUSTOMER MENU:\n";
         cout<<"1. Change Password\n"<< "2. Logout\n";
         cout<<"Enter option: ";

@@ -1,10 +1,16 @@
 #include "Shoppingheader.h"
 using namespace std;
 
+void clearScreen() {
+    // ANSI escape codes - works on almost all modern terminals (Linux, macOS, Windows Terminal)
+    cout << "\033[2J\033[1;1H";
+    cout.flush();
+}
+
 bool CheckCustomerdataintegrity() {
     ifstream file("Logindata.txt");
     if (!file) {
-        cout << "Error: cannot open player data file.\n";
+        cout << "Error: cannot open customer data file.\n";
         return false;
     }
 
@@ -96,7 +102,7 @@ otherwise remove it*/
 void ManagerMenu() {
     int option;
     while (true) {
-        system("cls");
+        clearScreen();
         cout << "===== DEBUG MENU =====\n";
         cout << "1. restock items\n";
         cout << "2. Check Customer Data Integrity\n";

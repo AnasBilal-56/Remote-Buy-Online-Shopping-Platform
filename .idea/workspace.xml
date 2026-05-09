@@ -29,7 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="admin">
-      <change beforePath="$PROJECT_DIR$/admin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/admin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +135,7 @@
       <workItem from="1778277992542" duration="1311000" />
       <workItem from="1778308514467" duration="170000" />
       <workItem from="1778320476027" duration="5434000" />
-      <workItem from="1778362789321" duration="430000" />
+      <workItem from="1778362789321" duration="2388000" />
     </task>
     <task id="LOCAL-00001" summary="readme added">
       <option name="closed" value="true" />
@@ -185,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778362824854</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="admin">
+      <option name="closed" value="true" />
+      <created>1778363228862</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778363228862</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

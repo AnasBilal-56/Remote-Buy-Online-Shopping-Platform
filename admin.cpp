@@ -100,7 +100,7 @@ void ManagerMenu() {
         cout << "===== DEBUG MENU =====\n";
         cout << "1. restock items\n";
         cout << "2. Check Customer Data Integrity\n";
-        cout << "3. add/remove items from catalogue\n";
+        cout << "3. add/remove items from catalogue\n";   //THIS CAN AND SHOULD BE EXPANDED AS NEEDED
         cout << "4. Exit Debug Menu\n";
         cout << "======================\n";
         cout << "Enter option: ";
@@ -118,9 +118,7 @@ void ManagerMenu() {
 
         switch (option) {
         case 1: {
-            initialisegame();
-            cout << "Press Enter to continue...";
-            cin.get();
+                //ADD FUNC
             break;
         }
 
@@ -134,7 +132,7 @@ void ManagerMenu() {
             break;
         }
         case 3: {
-
+                    //add function here
             break;
         }
         case 4:

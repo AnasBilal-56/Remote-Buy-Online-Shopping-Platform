@@ -8,8 +8,7 @@ void CreateAccount() {
     fstream file("Logindata.txt", ios::in | ios::out | ios::app);
     if (!file) { cout << "file not found!" << endl; return;}
 
-    // Username
-    cout << "Enter name (3-32 char): ";
+    cout << "Enter name (3-32 char): "; //username
     getline(cin, username);
     // Validation - No spaces, existing etc
     while (!isValidLength(username, 3, 32) || usernameExists(file, username)
@@ -25,13 +24,10 @@ void CreateAccount() {
     }
 
     cout << "Username is available!" << endl;
-
     file.clear();  file.seekp(0, ios::end);
 
-    // Username stored UNENCRYPTED
-    writeLine(file, username);
-    // Password
-    cout << "Enter your password (3-32 characters): ";
+    writeLine(file, username); //store username
+    cout << "Enter your password (3-32 characters): "; //pass prompt
     getline(cin, password);
 
     while (!isValidLength(password, 3, 32) || !isValidPassword(password)) {
@@ -44,50 +40,39 @@ void CreateAccount() {
         getline(cin, password);
     }
 
-    // Store encrypted password (using your existing encrypt() function - simple substitution)
-    string encryptedPass = encrypt(password);
+    string encryptedPass = encrypt(password); //encrypt and store passwords
     writeLine(file, encryptedPass);
-    // Loyalty - start new accounts at 0 (as per your file example)
-    writeLine(file, "0");
+    writeLine(file, "0");    // Loyalty - start new accounts at 0
     file.close();
-    cout << "Account created successfully!" << endl;
-}
+    cout << "Account created successfully!" << endl;}
 
 // Writes a line into the file
 void writeLine(fstream &file, const string &text){file << text << "\n";}
 
 // Checks if a username already exists (usernames stored unencrypted)
-bool usernameExists(fstream &file, const string &name)
-{
+bool usernameExists(fstream &file, const string &name){
     file.clear();
     file.seekg(0);
-
     string line;
     while (getline(file, line)) {
-        if (line == name) {
-            return true; // Username found
-        }
+        if (line == name) {return true;}//username found
 
         // Skip password line
         getline(file, line);
 
-        // Skip all stats lines
-        for (int i = 0; i < MAX_GAMES; i++) {
-            getline(file, line);
-        }
+        // Skip loyalty
+        for (int i = 0; i < 1; i++) {getline(file, line);}
     }
     return false;
 }
 
 // Check string length
-bool isValidLength(const string &str, int minLen, int maxLen)
-{
+bool isValidLength(const string &str, int minLen, int maxLen) {
     return (str.length() >= minLen && str.length() <= maxLen);
 }
 
 // Login function
-bool login(string &usernameRef, string &passwordRef)
-{
+bool login(string &usernameRef, string &passwordRef){
     string username, password;
 
     fstream file("Logindata.txt", ios::in);
@@ -141,16 +126,13 @@ bool login(string &usernameRef, string &passwordRef)
     }
 
     file.close();
-
     // DECRYPT before comparing
     string storedPassword = decrypt(storedPasswordEncrypted);
 
     if (password == storedPassword) {
         cout << "Login successful!" << endl;
-
         usernameRef = username;
         passwordRef = password;
-
         return true;
     } else {
         cout << "Incorrect password!" << endl;
@@ -158,8 +140,7 @@ bool login(string &usernameRef, string &passwordRef)
     }
 }
 
-void changepassword(string username, string &password)
-{
+void changepassword(string username, string &password){
     cout << endl << "Change Account Password" << endl;
 
     string newPassword;
@@ -169,14 +150,14 @@ void changepassword(string username, string &password)
     while (!isValidLength(newPassword, 3, 32) || !isValidPassword(newPassword)) {
         cout << endl << "Your password may only contain:" << endl;
         cout << "- Uppercase and Lower case letters: A-Z and a-z" << endl;
-        cout << "- Numbers: 0�9" << endl;
+        cout << "- Numbers: 0-9" << endl;
         cout << "- Allowed symbols: ! # $ % & * - + = @ _ " << endl;
         cout << "Spaces and other characters are not allowed." << endl;
         cout << "Please enter a valid password (3-32 characters): ";
         getline(cin, newPassword);
     }
 
-    ifstream infile("Logindata.txt");
+    ifstream infile("data.txt");
     ofstream temp("temp.txt");
 
     if (!infile || !temp) {
@@ -185,19 +166,22 @@ void changepassword(string username, string &password)
     }
 
     string line;
+    bool accountFound = false;
     while (getline(infile, line)) {
         temp << line << "\n";
 
         if (line == username) {
-            // Skip old password and write encrypted new password
+            accountFound = true;
+
+            // Skip old password line
             if (getline(infile, line)) {
+                // Write new encrypted password
                 temp << encrypt(newPassword) << "\n";
             }
 
-            for (int i = 0; i < 2; i++) {
-                if (getline(infile, line)) {
-                    temp << line << "\n";
-                }
+            // Copy only the Loyalty line (1 line only)
+            if (getline(infile, line)) {
+                temp << line << "\n";
             }
         }
     }
@@ -205,52 +189,54 @@ void changepassword(string username, string &password)
     infile.close();
     temp.close();
 
+    if (!accountFound) {
+        cout << "Account not found!\n";
+        remove("temp.txt");
+        return;
+    }
+
+    // Replace original file
     remove("Logindata.txt");
-    rename("temp.txt", "Logindata.txt");
-
-    password = newPassword;
-
+    rename("temp.txt", "data.txt");
+    password = newPassword;   // Update the reference
     cout << "Password changed successfully!\n";
 }
 
 // Encrypt (simple shift)
 // Note: for encryption and decryption unsigned char is not needed as max range(127) is less than 128
-string encrypt(string text)
-{
+string encrypt(string text){
     for (int i = 0; i < text.length(); i++)
         text[i] = char(int(text[i]) + 5);
     return text;
 }
 
 // Decrypt
-string decrypt(string text)
-{
+string decrypt(string text){
     for (int i = 0; i < text.length(); i++)
         text[i] = char(int(text[i]) - 5);
     return text;
 }
 
-bool isValidPassword(const string &s)
-{
+bool isValidPassword(const string &s){
     for (char c : s) {
         // some compilors store ascii values from -128 to -127
         // Using unsigned char cariable makes sure that the value is unsigned(0 to 255)
         // Remove logic errors in range comparisons
         unsigned char ascii = (unsigned char) c;
 
-        // Reject space and anything outside printable ASCII (33�122)
+        // Reject space and anything outside printable ASCII (33-122)
         if (ascii < 33 || ascii > 122)
             return false;
 
-        // Allowed: A�Z
+        // Allowed: -�Z
         if (ascii >= 'A' && ascii <= 'Z')
             continue;
 
-        // Allowed: a�z
+        // Allowed: a-z
         if (ascii >= 'a' && ascii <= 'z')
             continue;
 
-        // Allowed: 0�9
+        // Allowed: 0-9
         if (ascii >= '0' && ascii <= '9')
             continue;
 

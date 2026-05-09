@@ -1,68 +1,7 @@
 #include "Shoppingheader.h"
 using namespace std;
-//star
-void initialisegame() {
-    ifstream infile("Logindata.txt");
-    ofstream temp("temp.txt");
 
-    if (!infile || !temp) {
-        cout << "Error opening files.\n";
-        return;
-    }
-
-    string line;
-
-    while (getline(infile, line)) {
-        temp << line << "\n";            // username
-
-        if (!getline(infile, line)) break;
-        temp << line << "\n";            // encrypted password
-
-        // Copy existing game data
-        for (int i = 0; i < MAX_GAMES; i++) {
-            if (getline(infile, line))
-                temp << line << "\n";
-        }
-
-        // Add NEW game defaults
-        temp << "0 0 0\n";
-    }
-
-    infile.close();
-    temp.close();
-
-    remove("Logindata.txt");
-    rename("temp.txt", "Logindata.txt");
-
-
-    // Now Initialising the global Highscores of the new game in Highscore file
-    cout << "New game initialized for all players!" << endl;
-
-    ofstream file("highscore.txt", ios::app);  // append mode
-
-    if (!file) {
-        cout << "Error opening highscore.txt!\n";
-        return;
-    }
-
-    string gamename;
-    cout << "Enter the name of the new game:" << endl;
-    getline(cin, gamename);
-
-    // Write header
-    file << gamename << "\n";
-
-    // Write 10 default highscore entries
-    for (int i = 0; i < 10; i++) {
-        file << "0 ---" << endl;    // score 0, username placeholder (---)
-    }
-
-    file.close();
-
-    cout << "Highscore initialized for new game: " << gamename << endl;
-}
-
-bool Checkplayerdataintegrity() {
+bool CheckCustomerdataintegrity() {
     ifstream file("Logindata.txt");
     if (!file) {
         cout << "Error: cannot open player data file.\n";
@@ -71,7 +10,6 @@ bool Checkplayerdataintegrity() {
 
     string line;
     int lineNum = 0;
-
     while (getline(file, line)) {
         lineNum++;
         string username = line;
@@ -80,6 +18,7 @@ bool Checkplayerdataintegrity() {
             return false;
         }
 
+        // Read Encrypted Password
         if (!getline(file, line)) {
             cout << "Error: missing password for user " << username << endl;
             return false;
@@ -91,20 +30,23 @@ bool Checkplayerdataintegrity() {
             return false;
         }
 
-        // Check data lines
-        for (int i = 0; i < MAX_GAMES; i++) {
-            if (!getline(file, line)) {
-                cout << "Error: missing data line " << i + 1
-                    << " for user " << username << endl;
-                return false;
-            }
-            lineNum++;
-            int w, l, h;
-            istringstream iss(line);
-            if (!(iss >> w >> l >> h)) {
-                cout << "Error: invalid data line format at line " << lineNum << endl;
-                return false;
-            }
+        // Read Loyalty
+        if (!getline(file, line)) {
+            cout << "Error: missing loyalty value for user " << username << endl;
+            return false;
+        }
+        lineNum++;
+        string loyaltyStr = line;
+        if (loyaltyStr.empty()) {
+            cout << "Error: empty loyalty field for user " << username << endl;
+            return false;
+        }
+        int loyalty;
+        istringstream iss(loyaltyStr);
+        if (!(iss >> loyalty) || !iss.eof()) {
+            cout << "Error: invalid loyalty value (must be integer) at line "
+                 << lineNum << " for user " << username << endl;
+            return false;
         }
     }
 
@@ -112,50 +54,53 @@ bool Checkplayerdataintegrity() {
     return true;
 }
 
-bool checkHighscoreIntegrity(int maxGames) {
-    ifstream file("highscore.txt");
-    if (!file) {
-        cout << "Error: cannot open highscore file.\n";
-        return false;
-    }
+// bool checkHighscoreIntegrity(int maxGames) {
+//     ifstream file("highscore.txt");
+//     if (!file) {
+//         cout << "Error: cannot open highscore file.\n";
+//         return false;
+//     }
+//
+//     string line;
+//     for (int g = 0; g < maxGames; g++) {
+//         // header line
+//         if (!getline(file, line)) {
+//             cout << "Error: missing header for game " << g + 1 << endl;
+//             return false;
+//         }
+//
+//         for (int i = 0; i < 10; i++) {
+//             if (!getline(file, line)) {
+//                 cout << "Error: missing score line " << i + 1
+//                     << " for game " << g + 1 << endl;
+//                 return false;
+//             }
+//             int score;
+//             string uname;
+//             istringstream iss(line);
+//             if (!(iss >> score >> uname) || uname.empty()) {
+//                 cout << "Error: invalid score line format at game " << g + 1
+//                     << ", line " << i + 1 << endl;
+//                 return false;
+//             }
+//         }
+//     }
+//
+//     cout << "Highscore file integrity check passed.\n";
+//     return true;
+// }
 
-    string line;
-    for (int g = 0; g < maxGames; g++) {
-        // header line
-        if (!getline(file, line)) {
-            cout << "Error: missing header for game " << g + 1 << endl;
-            return false;
-        }
+/*the above function can be remade for our project e.g shoppinghistory.txt etc
+otherwise remove it*/
 
-        for (int i = 0; i < 10; i++) {
-            if (!getline(file, line)) {
-                cout << "Error: missing score line " << i + 1
-                    << " for game " << g + 1 << endl;
-                return false;
-            }
-            int score;
-            string uname;
-            istringstream iss(line);
-            if (!(iss >> score >> uname) || uname.empty()) {
-                cout << "Error: invalid score line format at game " << g + 1
-                    << ", line " << i + 1 << endl;
-                return false;
-            }
-        }
-    }
-
-    cout << "Highscore file integrity check passed.\n";
-    return true;
-}
-
-void DEBUGMENU() {
+void ManagerMenu() {
     int option;
     while (true) {
         system("cls");
         cout << "===== DEBUG MENU =====\n";
-        cout << "1. Initialize New Game\n";
-        cout << "2. Check Player Data Integrity\n";
-        cout << "3. Check Highscore Integrity\n";
+        cout << "1. restock items\n";
+        cout << "2. Check Customer Data Integrity\n";
+        cout << "3. add/remove items from catalogue\n";
         cout << "4. Exit Debug Menu\n";
         cout << "======================\n";
         cout << "Enter option: ";
@@ -180,7 +125,7 @@ void DEBUGMENU() {
         }
 
         case 2: {
-            if (Checkplayerdataintegrity())
+            if (CheckCustomerdataintegrity())
                 cout << "Player data is OK.\n";
             else
                 cout << "Player data has errors.\n";
@@ -189,12 +134,7 @@ void DEBUGMENU() {
             break;
         }
         case 3: {
-            if (checkHighscoreIntegrity(MAX_GAMES))
-                cout << "Highscore file is OK.\n";
-            else
-                cout << "Highscore file has errors.\n";
-            cout << "Press Enter to continue...";
-            cin.get();
+
             break;
         }
         case 4:

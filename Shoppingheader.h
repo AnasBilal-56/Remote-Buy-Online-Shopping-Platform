@@ -21,20 +21,13 @@
 #include <thread> // Needed for sleep_for
 using namespace std;
 
-// --- Minesweeper Constants ---
-const int ROWS = 10, COLS = 10,
-          MINS = 10; // sizw of game board & num mines is fixed so constant difficulty
-
-// --- Constants ---
-const int MAX_GAMES = 5; // e.g., 0 = Wordle, 1 = minesweeper, 3 = tic tac toe;
-
 // --- Account Management Functions ---
 void CreateAccount();
 void changepassword(string username, string &password);
 bool login(string &usernameRef, string &passwordRef);
 
-// --- Player Menu Function
-void PlayerMenu(string &username, string &password);
+// --- Menu Function
+void CustomerMenu(string &username, string &password);
 
 // --- File/String Utilities ---
 void writeLine(fstream &file, const string &text);
@@ -46,21 +39,21 @@ bool isValidPassword(const string &s);
 string encrypt(string text);
 string decrypt(string text);
 
-// --- Score Saving ---
+// --- Score Saving ---   ////replace with cart history?
 void updateStats(string username, int gameIndex, bool won, double score);
 void Highscore(string username, int inscore, int gameIndex);
 int disphighcore();
 void showStats(string username);
 
 // --- Scalability/Debug ---
-void initialisegame();
-bool Checkplayerdataintegrity();
-bool checkHighscoreIntegrity(int maxGames);
-void DEBUGMENU();
+void initialisegame();  //replace with additem/restock?
+bool CheckCustomerdataintegrity();  //remove?
+bool checkHighscoreIntegrity(int maxGames);  //^
+void ManagerMenu();
 
 // --- COLORS ---
 #define REDC "\033[31m"
-#defplayer_management.cppine GREENC "\033[32m"
+#define GREENC "\033[32m"
 #define YELLOWC "\033[33m"
 #define BLUEC "\033[34m"
 #define CYANC "\033[36m"

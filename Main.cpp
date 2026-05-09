@@ -1,9 +1,9 @@
-#include "project.h"
+#include "Shoppingheader.h"
 using namespace std;
 
-string player1;
+string user1;
 string password1;
-bool won;
+bool won; //remove?
 
 int main() {
     // Initial Pseudo Loading screen For file Integrity Checks
@@ -13,7 +13,7 @@ int main() {
     this_thread::sleep_for(chrono::milliseconds(750)); 
     cout << "." << endl;
 
-    if (!Checkplayerdataintegrity()) {
+    if (!CheckCustomerdataintegrity()) {
         cout << REDC << "Player data file corrupted! Please fix or restore backup.\n" << RESET;
         return 1;
     }
@@ -58,12 +58,12 @@ int main() {
 
         case 2: {
             // Calling login If Login Successful Opens player Menu
-            if (login(player1, password1)) {
-                if (player1 == "Debug") {
+            if (login(user1, password1)) {
+                if (user1 == "Debug") {
                     DEBUGMENU();
                     break;
                 }
-                PlayerMenu(player1, password1);
+                PlayerMenu(user1, password1);
                 cout << endl << "Logging out";
                 this_thread::sleep_for(chrono::milliseconds(350));
                 cout << ".";
@@ -122,7 +122,7 @@ int main() {
 // Player Menu
 // Allows player to play games, check stats and change account password.
 // Stores player username and Password for further function(Updating statistics and highscores)
-void PlayerMenu(string& username, string& password) {
+void CustomerMenu(string& username, string& password) {
     int option;
     bool logout = false;
 

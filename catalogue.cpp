@@ -100,6 +100,3 @@ public:
     Product getProductAtIndex(int index){if (index >= 0 && index < size){return products[index];}}
     ~Catalogue() { delete[] products; }
 };
-
-Catalogue ProductCatalogue;
-

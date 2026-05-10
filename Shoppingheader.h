@@ -47,6 +47,7 @@ int disphighcore();
 void showStats(string username);
 
 // --- Scalability/Debug ---
+class Catalogue; class Product;
 void initialisegame();  //replace with additem/restock?
 bool CheckCustomerdataintegrity();  //remove?
 bool checkHighscoreIntegrity(int maxGames);  //^

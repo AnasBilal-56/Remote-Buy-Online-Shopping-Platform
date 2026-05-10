@@ -5,7 +5,9 @@ string user1;
 string password1;
 bool won; //remove?
 
-int main() {    // Initial Pseudo Loading screen For file Integrity Checks
+int main() {
+
+    // Initial Pseudo Loading screen For file Integrity Checks
     cout << "Running integrity checks.";
     this_thread::sleep_for(chrono::milliseconds(750)); 
     cout << ".";

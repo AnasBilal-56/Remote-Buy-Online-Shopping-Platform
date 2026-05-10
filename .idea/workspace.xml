@@ -28,12 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="readme fix, header fix, account creaation bugfix">
-      <change afterPath="$PROJECT_DIR$/cataloguemenu.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cataloguemenu.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cataloguemenu.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="cataloguemenu setup placeholders, catalogue wip">
       <change beforePath="$PROJECT_DIR$/catalogue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +145,7 @@
       <workItem from="1778362789321" duration="4887000" />
       <workItem from="1778394504834" duration="4920000" />
       <workItem from="1778405450952" duration="9000" />
-      <workItem from="1778410701826" duration="3779000" />
+      <workItem from="1778410701826" duration="6148000" />
     </task>
     <task id="LOCAL-00001" summary="readme added">
       <option name="closed" value="true" />
@@ -240,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778411367329</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="cataloguemenu setup placeholders, catalogue wip">
+      <option name="closed" value="true" />
+      <created>1778414519455</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778414519455</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +274,19 @@
     <MESSAGE value="header fixes" />
     <MESSAGE value="clear screen utility function defined. main fully operational in terminal.&#10;IMPORTANT ALL FILES TO BE ifstreamed MUST be placed in the cmake-build-debug folder" />
     <MESSAGE value="readme fix, header fix, account creaation bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme fix, header fix, account creaation bugfix" />
+    <MESSAGE value="cataloguemenu setup placeholders, catalogue wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="cataloguemenu setup placeholders, catalogue wip" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cataloguemenu.cpp</url>
+          <line>6</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

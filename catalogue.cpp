@@ -1,79 +1,48 @@
 #include "Shoppingheader.h"
-
-class Product
-{
+class Product{
 private:
-    int id;
-    string name;
-    double price;
+    int id, stock; double price;
+    string name, category;
 
 public:
-    Product()
-    {
-        id = 0;
-        name = "";
-        price = 0;
+    Product(){id = 0,stock =0, price =0,name = "",category="";}
+    Product(int i,int s, string n, double p, string c) {
+        id = i,name = n, price = p, category =c, stock = s;
     }
 
-    Product(int i, string n, double p)
-    {
-        id = i;
-        name = n;
-        price = p;
-    }
-
-    void Display() const { cout << id << "|" << name << "|" << price << "|" << endl; }
-
+    // void Display() const { cout << id << "|" << name << "|" << price << "|" << endl; } //useless?
     string getname() const { return name; }
-
     int getId() const { return id; }
-
     double getPrice() const { return price; }
+    string getCategory() const { return category; }
+    int getStock() const { return stock; }
 
     void modifyName(string name) { this->name = name; }
-
     void modifyPrice(double price) { this->price = price; }
+    void modifyStock(int stock) { this->stock = stock; }
 };
 
-class Catalogue
-{
+class Catalogue{
 private:
-    Product *products;
-    int size;
+    Product *products; int size;
 
 public:
-    int capacity;
-
-    Catalogue(int cap)
-    {
-        capacity = cap;
-        size = 0;
-        products = new Product[cap];
+    Catalogue(){ size = 0; products = new Product[100];}
+    void addProduct(Product p){
+        if (size < 100) {products[size++] = p;}
+        else {cout << "Catalogue is Full!" << endl;}   ///TERMINAL OUTPUT CHANGE TO QT UI PLS
     }
 
-    void addProduct(Product p)
-    {
-        if (size < capacity) {
-            products[size++] = p;
-        } else {
-            cout << "Catalogue is Full!" << endl;
-        }
-    }
+    // void showProducts(){
+    //     for (int i = 0; i < size; i++) {products[i].Display();}
+    // }
 
-    void showProducts()
-    {
-        for (int i = 0; i < size; i++) {
-            products[i].Display();
-        }
-    }
-
-    Product getProduct(int id)
-    {
+    Product getProduct(int id){
         for (int i = 0; i < size; i++) {
             if (products[i].getId() == id)
                 return products[i];
         }
-        return Product(-1, "Not Found", 0);
+        return ;
     }
 
     Product getProductByName(string name)
@@ -138,7 +107,6 @@ public:
     }
 
     int getsize() const { return size; }
-
     bool isempty() const { return size == 0; }
 
     Product getProductAtIndex(int index)

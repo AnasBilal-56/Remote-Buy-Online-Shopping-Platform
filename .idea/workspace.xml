@@ -28,12 +28,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="clear screen utility function defined. main fully operational in terminal.&#10;IMPORTANT ALL FILES TO BE ifstreamed MUST be placed in the cmake-build-debug folder">
+    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="readme fix, header fix, account creaation bugfix">
+      <change afterPath="$PROJECT_DIR$/cataloguemenu.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cataloguemenu.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cataloguemenu.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer_managment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/customer_managment.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +119,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Remote-Buy-Online-Shopping-Platform" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Remote-Buy-Online-Shopping-Platform" TARGET_NAME="Remote-Buy-Online-Shopping-Platform" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Remote-Buy-Online-Shopping-Platform" RUN_TARGET_NAME="Remote-Buy-Online-Shopping-Platform">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -144,7 +150,7 @@
       <workItem from="1778362789321" duration="4887000" />
       <workItem from="1778394504834" duration="4920000" />
       <workItem from="1778405450952" duration="9000" />
-      <workItem from="1778410701826" duration="438000" />
+      <workItem from="1778410701826" duration="3779000" />
     </task>
     <task id="LOCAL-00001" summary="readme added">
       <option name="closed" value="true" />
@@ -226,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778367550931</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="readme fix, header fix, account creaation bugfix">
+      <option name="closed" value="true" />
+      <created>1778411367329</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1778411367329</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +270,8 @@
     <MESSAGE value="MAIN READY" />
     <MESSAGE value="header fixes" />
     <MESSAGE value="clear screen utility function defined. main fully operational in terminal.&#10;IMPORTANT ALL FILES TO BE ifstreamed MUST be placed in the cmake-build-debug folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="clear screen utility function defined. main fully operational in terminal.&#10;IMPORTANT ALL FILES TO BE ifstreamed MUST be placed in the cmake-build-debug folder" />
+    <MESSAGE value="readme fix, header fix, account creaation bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme fix, header fix, account creaation bugfix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

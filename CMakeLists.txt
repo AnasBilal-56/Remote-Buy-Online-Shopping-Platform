@@ -6,6 +6,9 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(Remote-Buy-Online-Shopping-Platform
         catalogue.cpp cart.cpp Shoppingheader.h customer_managment.cpp admin.cpp Main.cpp
+        cataloguemenu.cpp
+        cataloguemenu.h
+        cataloguemenu.ui
 
 )
 

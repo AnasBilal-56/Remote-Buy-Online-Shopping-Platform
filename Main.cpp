@@ -6,6 +6,9 @@ string password1;
 bool won; //remove?
 
 int main() {
+    Catalogue ItemCatalogue;
+    Product P1;
+    // ItemCatalogue.addProduct();
 
     // Initial Pseudo Loading screen For file Integrity Checks
     cout << "Running integrity checks.";

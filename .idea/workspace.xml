@@ -28,11 +28,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="cat">
+    <list default="true" id="7c293b37-c0ee-4f55-ad54-3660f1907413" name="Changes" comment="header fix">
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shoppingheader.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shoppingheader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +148,7 @@
       <workItem from="1778362789321" duration="4887000" />
       <workItem from="1778394504834" duration="4920000" />
       <workItem from="1778405450952" duration="9000" />
-      <workItem from="1778410701826" duration="6765000" />
+      <workItem from="1778410701826" duration="7346000" />
     </task>
     <task id="LOCAL-00001" summary="readme added">
       <option name="closed" value="true" />
@@ -254,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778417788926</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="header fix">
+      <option name="closed" value="true" />
+      <created>1778418449316</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1778418449316</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +295,8 @@
     <MESSAGE value="readme fix, header fix, account creaation bugfix" />
     <MESSAGE value="cataloguemenu setup placeholders, catalogue wip" />
     <MESSAGE value="cat" />
-    <option name="LAST_COMMIT_MESSAGE" value="cat" />
+    <MESSAGE value="header fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="header fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

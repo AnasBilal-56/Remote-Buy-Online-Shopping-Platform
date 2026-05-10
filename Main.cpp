@@ -7,8 +7,8 @@ bool won; //remove?
 
 int main() {
     Catalogue ItemCatalogue;
-    Product P1;
-    // ItemCatalogue.addProduct();
+    Product P1(1, 5,"laptop",36.44,"electronics");
+    ItemCatalogue.addProduct(P1);
 
     // Initial Pseudo Loading screen For file Integrity Checks
     cout << "Running integrity checks.";

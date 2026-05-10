@@ -1,70 +1,65 @@
-========================================================================
-Online Shopping Cart- Object-Oriented Programming project   
-========================================================================
+# Online Shopping Cart - Object-Oriented Programming Project
 
-------------------------------------------------------------------------
-1. GROUP MEMBERS
-------------------------------------------------------------------------
+## Group Members
 
-1. Muhammad Anas Bilal (25L-0778)
-2. Ali Khan (25L-0848)
-   3. Osama Bin Tahir (25L-0689)
-4. Muhammad Hamdaan (25L-0911)
+- Muhammad Anas Bilal (25L-0778)
+- Ali Khan (25L-0848)
+- Osama Bin Tahir (25L-0689)
+- Muhammad Hamdaan (25L-0911)
 
-------------------------------------------------------------------------
-2. PROJECT DESCRIPTION & FEATURES
-------------------------------------------------------------------------
-The Online Shopping Cart System is a UI-based program developed using object-oriented programming concepts. It simulates the basic functionality of an online store by allowing users to view products, add items to a cart, and perform a checkout process through code execution. The system focuses on implementing core features such as cart management and total price calculation while demonstrating concepts like classes, objects, and modular design. Its main purpose is to provide a simple and efficient way to understand how online shopping systems work through programming logic.
+## Project Description & Features
 
+The **Online Shopping Cart System** is a UI-based console program developed using Object-Oriented Programming concepts in C++. It simulates the basic functionality of an online store, allowing users to browse products, manage a shopping cart, and complete purchases.
 
-    • system that allows users to browse and view products easily.
-    • enable users to add/remove items from their shopping cart.
-    • provide a checkout process that saves that purchsse into history.
-    • automatically calculate total cost, including taxes or discounts.
-    • To design a simple. ergonomic user-friendly interface for smooth navigation.
-    • User authentication/login system
-    • Simple encrypted storage for passwords
-    • Admin account with elevated privelages over the sysetem
-    • search engine with critera like category
-    • automated stock updates on purchase & validation
-------------------------------------------------------------------------
-3. FILES INCLUDED 
-------------------------------------------------------------------------
-                                NOT FINALIZED UPDATE LATER.
-///////////////////////////////////////////////////////////////////////
-Source Code:
-- Main.cpp                (Entry point, Menu System, program init)
-- project.h               (Function Declerations, Constants, Libraries)
-- cutomer_management.cpp   (Login, Register, Encryption, change password)
-- manager.cpp               (Database Integrity operations, loyalty point awarding and New item Data initialization tools)
--CMakeLists.txt             (used by CMake to build compilier agnostic program ensuring correct runtime execution)
-Data Files (Must be in Project Directory):
-- data.txt                (Stores user credentials. thier cart history and loyalty status)
-itemCatalogue.txt          (database of items, their stock, categories, prices )
+### Key Features
 
+- Browse and view products easily
+- Add/remove items from the shopping cart
+- Checkout process with purchase history saving
+- Automatic total cost calculation (including taxes/discounts)
+- User authentication / login system
+- Simple encrypted password storage
+- Admin account with elevated privileges
+- Search products by category or criteria
+- Automated stock updates and validation on purchase
+- User-friendly menu interface
 
-------------------------------------------------------------------------
-5. SETUP & HOW TO RUN 
-------------------------------------------------------------------------
-                    UNFINISHED PLACEHOLDER CHANGE LATER. 
-////////////////////////////////////////////////////////////////////////////
-1. In Visual Studio, ensure the configuration is set to "Debug" or "Release" 
-   and "x64" or "x86".
-2. Press Ctrl + F5 (Start Without Debugging) to compile and run.
-3. Upon start, the system will perform an Integrity Check on the text files.
-   - If files are missing, it will alert you.
+## Files Included
 
-------------------------------------------------------------------------
-6. ADMIN / MANAGER FEATURES
-------------------------------------------------------------------------
-To access the hidden maintenance menu:
-1. Select "Login" from the main menu.
-2. Username: Manager
-3. Password: 123456789
+### Source Code
+- `Main.cpp` — Entry point, menu system, program initialization
+- `project.h` — Function declarations, constants, libraries
+- `customer_management.cpp` — Login, register, encryption, password management
+- `manager.cpp` — Database integrity, loyalty points, item management tools
+- `CMakeLists.txt` — Build configuration
 
-Debug Menu Options:
-                   edit item stocks
-                   change prices
-                   add/remove items and categories
+### Data Files (Must be in project directory)
+- `Logindata.txt` — User credentials, cart history, loyalty status
+- `itemCatalogue array` — Product database (stock, categories, prices)
 
-------------------------------------------------------------------------
+## Setup & How to Run
+
+1. Open the project in **Visual Studio**.
+2. Set configuration to **Debug** or **Release** and platform to **x64** (or x86).
+3. Press `Ctrl + F5` (Start Without Debugging) to build and run.
+4. On first run, the program will perform an integrity check on the data files.
+
+> **Note**: Make sure `Logindata.txt` and othe required files are present in the project directory.
+
+## Admin / Manager Features
+
+**Hidden Maintenance Menu:**
+
+1. Select **Login** from the main menu.
+2. Use the following credentials:
+    - **Username**: `Manager`
+    - **Password**: `123456789`
+
+### Available Admin Options
+- Edit item stocks
+- Change prices
+- Add/remove items and categories
+
+---
+
+**Project Status**: README is a work in progress — update file list and setup instructions as needed.

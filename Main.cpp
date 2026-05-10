@@ -53,7 +53,7 @@ int main() {    // Initial Pseudo Loading screen For file Integrity Checks
         case 2: {
             // Calling login If Login Successful Opens player Menu
             if (login(user1, password1)) {
-                if (user1 == "Debug") {
+                if (user1 == "Admin") {
                     ManagerMenu();
                     break;
                 }

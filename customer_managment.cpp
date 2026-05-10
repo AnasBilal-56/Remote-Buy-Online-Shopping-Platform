@@ -3,66 +3,66 @@ using namespace std;
 
 // Function to create a new account
 void CreateAccount() {
-    cout << endl << "Create New Account" << endl;
+    cout << "\nCreate New Account\n";
     string username, password;
-    fstream file("Logindata.txt", ios::in | ios::out | ios::app);
-    if (!file) { cout << "file not found!" << endl; return;}
-
-    cout << "Enter name (3-32 char): "; //username
-    getline(cin, username);
-    // Validation - No spaces, existing etc
-    while (!isValidLength(username, 3, 32) || usernameExists(file, username)
-           || username.find_first_of(" \t\n") != string::npos) {
-        if (!isValidLength(username, 3, 32)) {
-            cout << "Enter a valid length Username (3-32 characters): ";
-        } else if (usernameExists(file, username)) {
-            cout << "Username already exists! Enter a different Username (3-32 characters): ";
-        } else if (username.find_first_of(" \t\n") != string::npos) {
-            cout << "Username cannot contain white spaces. Enter a valid username: ";
-        }
+    // === VALIDATION PHASE (read only) ===
+    while (true) {
+        cout << "Enter name (3-32 char): ";
         getline(cin, username);
+
+        if (!isValidLength(username, 3, 32) ||
+            username.find_first_of(" \t\n") != string::npos) {
+            cout << "Invalid username! (3-32 chars, no whitespace)\n";
+            continue;
+            }
+
+        if (usernameExists(username)) {   // pass string, not fstream
+            cout << "Username already exists! Try another.\n";
+            continue;
+        }
+
+        break;
     }
 
-    cout << "Username is available!" << endl;
-    file.clear();  file.seekp(0, ios::end);
+    cout << "Username is available!\n";
 
-    writeLine(file, username); //store username
-    cout << "Enter your password (3-32 characters): "; //pass prompt
+    // === WRITING PHASE ===
+    fstream file("Logindata.txt", ios::out | ios::app);
+    if (!file) {
+        cout << "Error opening file!\n";
+        return;
+    }
+
+    // Make sure we start on a new line
+    file << username << '\n';
+    // file.seekp(0, ios::end);   // not needed with app mode
+
+    cout << "Enter your password (3-32 characters): ";
     getline(cin, password);
 
     while (!isValidLength(password, 3, 32) || !isValidPassword(password)) {
-        cout << endl << "Your password may only contain:" << endl;
-        cout << "- Uppercase and Lower case letters: A-Z and a-z" << endl;
-        cout << "- Numbers: 0-9" << endl;
-        cout << "- Allowed symbols: ! # $ % & * - + = @ _ " << endl;
-        cout << "Spaces and other characters are not allowed." << endl;
-        cout << "Please enter a valid password (3-32 characters): ";
+        cout << "\nInvalid password!\n"
+             << "Allowed: A-Z a-z 0-9 ! # $ % & * - + = @ _\n"
+             << "No spaces or other characters.\n"
+             << "Enter valid password: ";
         getline(cin, password);
     }
 
-    string encryptedPass = encrypt(password); //encrypt and store passwords
-    writeLine(file, encryptedPass);
-    writeLine(file, "0");    // Loyalty - start new accounts at 0
-    file.close();
-    cout << "Account created successfully!" << endl;}
+    string encryptedPass = encrypt(password);
+    file << encryptedPass << '\n';
+    file << "0\n";                    // loyalty points
 
+    file.close();
+    cout << "Account created successfully!\n";
+}
 // Writes a line into the file
 void writeLine(fstream &file, const string &text){file << text << "\n";}
 
 // Checks if a username already exists (usernames stored unencrypted)
-bool usernameExists(fstream &file, const string &name){
-    file.clear();
-    file.seekg(0);
+bool usernameExists(const string& name) {
+    ifstream file("Logindata.txt");
     string line;
-    while (getline(file, line)) {
-        if (line == name) {return true;}//username found
-
-        // Skip password line
-        getline(file, line);
-
-        // Skip loyalty
-        for (int i = 0; i < 1; i++) {getline(file, line);}
-    }
+    while (getline(file, line)) {if (line == name) return true;}
     return false;
 }
 

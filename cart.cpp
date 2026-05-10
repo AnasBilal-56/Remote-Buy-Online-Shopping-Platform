@@ -1,34 +1,24 @@
 #include "Shoppingheader.h"
-class Product
-{
-public:
+class Product{
     int id;
     string name;
     double price;
+    string category;
 
 public:
-    Product()
-    {
-        id = 0;
-        name = "";
-        price = 0;
+    Product(){
+        id = 0, price=0;
+        name = "",category = "";
     }
-    Product(int i, string n, double p)
-    {
-        id = i;
-        name = n;
-        price = p;
-    }
-    void Display() const { cout << id << "|" << name << "|" << price << "|" << endl; }
+    Product(int i, string n, double p,string c) {id = i; price = p; category = c; name = n;}
+
+    // void Display() const { cout << id << "|" << name << "|" << price << "|" << endl; }
     string getname() const { return name; }
     double getprice() { return price; }
-    bool operator==(const Product &obj) const
-    {
+    bool operator==(const Product &obj) const{
         if (this->id == obj.id) {
-            return true;
-        } else {
-            return false;
-        }
+            return true;}
+        else {return false;}
     }
     void print()
     {
@@ -42,7 +32,6 @@ public:
     Product item;
     unsigned long int quantity;
 
-public:
     Cartitem() { quantity = 0; }
     Product getitem() { return item; }
     Cartitem &operator--()
@@ -53,6 +42,8 @@ public:
         return *this;
     }
 };
+
+
 class Cart
 {
     unsigned long long int Cid;
@@ -135,26 +126,26 @@ public:
             cout << " Quantity :  " << p[i].quantity << endl;
         }
     }
-    void upgradequnatity(int productid, int newquantity)
-    {
-        for (int i = 0; i < count; i++) {
-            if (p[i].item.id == productid) {
-                if (newquantity < 0) {
-                    cout << "Error! Invalid quantity." << endl;
-                    return;
-                }
-
-                if (newquantity == 0) {
-                    removeproduct(p[i].item);
-                    return;
-                } else {
-                    p[i].quantity = newquantity;
-                    return;
-                }
-            }
-        }
-        cout << "Product not found in cart " << endl;
-    }
+    // void upgradequnatity(int productid, int newquantity)
+    // {
+    //     for (int i = 0; i < count; i++) {
+    //         if (p[i].item.id == productid) {
+    //             if (newquantity < 0) {
+    //                 cout << "Error! Invalid quantity." << endl;
+    //                 return;
+    //             }
+    //
+    //             if (newquantity == 0) {
+    //                 removeproduct(p[i].item);
+    //                 return;
+    //             } else {
+    //                 p[i].quantity = newquantity;
+    //                 return;
+    //             }
+    //         }
+    //     }
+    //     cout << "Product not found in cart " << endl;
+    // }
     long double calculatetotal()
     {
         long double total = 0;

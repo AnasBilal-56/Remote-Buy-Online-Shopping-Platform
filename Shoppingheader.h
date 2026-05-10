@@ -31,7 +31,7 @@ void CustomerMenu(string &username, string &password);
 
 // --- File/String Utilities ---
 void writeLine(fstream &file, const string &text);
-bool usernameExists(fstream &file, const string &name);
+bool usernameExists( const string &name);
 bool isValidLength(const string &str, int minLen, int maxLen);
 bool isValidPassword(const string &s);
 void clearScreen();

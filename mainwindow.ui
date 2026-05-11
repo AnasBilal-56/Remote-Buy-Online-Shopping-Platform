@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true">/* =========================================
+   GLOBAL BACKGROUND &amp; TEXT
+   ========================================= */
+QMainWindow {
+    background-color: #F4F7F6; /* Soft, modern off-white background */
+}
+
+QLabel {
+    color: #2C3E50; /* Dark slate gray for readable text */
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Make Titles look like Headers */
+QLabel#lblWelcome {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2980B9;
+}
+
+/* =========================================
+   TEXT BOXES (Line Edits)
+   ========================================= */
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 2px solid #DCE4EC;
+    border-radius: 8px; /* Rounded corners */
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #34495E;
+}
+
+/* When the user clicks inside the text box */
+QLineEdit:focus {
+    border: 2px solid #3498DB; /* Highlight blue */
+    background-color: #FAFCFF;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+QPushButton {
+    background-color: #3498DB; /* Primary Blue */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+}
+
+/* When the mouse hovers over the button */
+QPushButton:hover {
+    background-color: #2980B9; /* Slightly darker blue */
+}
+
+/* When the button is clicked */
+QPushButton:pressed {
+    background-color: #1F618D;
+}
+
+/* Secondary/Back Buttons (If you want a red or grey button) */
+QPushButton#btnExit, QPushButton#btnLogout, QPushButton#btnBack {
+    background-color: #E74C3C; /* Soft Red */
+}
+
+QPushButton#btnExit:hover, QPushButton#btnLogout:hover, QPushButton#btnBack:hover {
+    background-color: #C0392B; /* Darker Red */
+}
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QPushButton" name="btnLoginMenu">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>380</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Login</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnCreateAccountMenu">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>380</y>
+          <width>151</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Create Account</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnExit">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>380</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Exit</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>20</y>
+          <width>421</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resource.qrc">:/logo.png.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <zorder>label</zorder>
+       <zorder>btnLoginMenu</zorder>
+       <zorder>btnCreateAccountMenu</zorder>
+       <zorder>btnExit</zorder>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QLineEdit" name="txtUsername">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>260</y>
+          <width>231</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Username</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtPassword">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>320</y>
+          <width>231</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>Enter Password</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnLoginSubmit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>420</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Submit</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnBack">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>420</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>-40</y>
+          <width>281</width>
+          <height>281</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resource.qrc">:/logo.png.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <zorder>label_2</zorder>
+       <zorder>txtUsername</zorder>
+       <zorder>txtPassword</zorder>
+       <zorder>btnLoginSubmit</zorder>
+       <zorder>btnBack</zorder>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <widget class="QLabel" name="lblWelcome">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>50</y>
+          <width>401</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Welcome to the Customer Menu!</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnChangesPass">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>120</y>
+          <width>171</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Change Password</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnLogout">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>240</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Logout</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <widget class="QLineEdit" name="txtNewPassword">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>320</y>
+          <width>181</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter new password</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtNewUsername">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>250</y>
+          <width>181</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Enter new username</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnCreateSubmit">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>410</y>
+          <width>151</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Create Account</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnBackCreate">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>420</y>
+          <width>93</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>180</y>
+          <width>391</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Style for the Labels (New Username / Password) */
+QLabel {
+    font-family: &quot;Segoe UI&quot;, Arial;
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+    background: transparent;
+    padding: 5px;
+}
+
+/* Style for the Input Fields */
+QLineEdit {
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    selection-background-color: #3498db;
+}
+
+QLineEdit:focus {
+    border: 2px solid #3498db;
+    background-color: #f9f9f9;
+}
+
+/* Style for the Button */
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #1c5980;
+}</string>
+        </property>
+        <property name="text">
+         <string>Enter New Username and Password:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>-20</x>
+          <y>-70</y>
+          <width>281</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resource.qrc">:/logo.png.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <zorder>label_4</zorder>
+       <zorder>txtNewPassword</zorder>
+       <zorder>txtNewUsername</zorder>
+       <zorder>btnCreateSubmit</zorder>
+       <zorder>btnBackCreate</zorder>
+       <zorder>label_3</zorder>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

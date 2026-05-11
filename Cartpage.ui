@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CartPage</class>
+ <widget class="QDialog" name="CartPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>753</width>
+    <height>367</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Main Window */
+QWidget#mainWindow {
+    background-color: #ffffff;
+}
+
+/* Header &amp; Breadcrumbs */
+QLabel#breadcrumb {
+    color: #888888;
+    font-size: 11px;
+}
+
+/* Page Title */
+QLabel#cartTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+}
+
+/* Progress Tracker Bar */
+QProgressBar#cartProgress {
+    border: 1px solid #e0e0e0;
+    background-color: #f5f5f5;
+    height: 6px;
+    text-align: center;
+}
+
+QProgressBar#cartProgress::chunk {
+    background-color: #4b49ff; /* The signature blue */
+    width: 20px;
+}
+
+/* Cart Table Headers */
+QLabel#columnHeader {
+    color: #000000;
+    font-weight: bold;
+    font-size: 13px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 5px;
+}
+
+/* Item Frame */
+QFrame#itemRow {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0px;
+}
+
+/* Product Image Placeholder */
+QLabel#productImg {
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+
+/* Checkout Section */
+QFrame#footer {
+    background-color: #ffffff;
+    border-top: 2px solid #f0f0f0;
+}
+
+QPushButton#checkoutBtn {
+    background-color: #3b3bc4;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px 40px;
+    border-radius: 2px;
+}
+
+QPushButton#checkoutBtn:hover {
+    background-color: #2a2a9e;
+}
+QPushButton#checkoutBtn {
+    background-color: #3b3bc4;
+    color: white;
+    border-radius: 2px;
+    padding: 12px;
+}</string>
+  </property>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>40</y>
+     <width>671</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-color: #f5f6fa;
+    font-family: Segoe UI;
+    font-size: 13px;
+    color: #2d3436;
+}
+QTableWidget {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    gridline-color: #f0f0f0;
+}
+QTableWidget::item {
+    padding: 10px 8px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #2d3436;
+}
+QTableWidget::item:selected {
+    background-color: #e8f4fd;
+    color: #2d3436;
+}
+QHeaderView::section {
+    background-color: #2d3436;
+    color: white;
+    padding: 12px 8px;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+}
+QPushButton {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+}
+QPushButton#m_checkoutBtn {
+    background-color: #00b894;
+    color: white;
+}
+QPushButton#m_checkoutBtn:hover {
+    background-color: #00a381;
+}
+QPushButton#m_removeBtn {
+    background-color: #d63031;
+    color: white;
+}
+QPushButton#m_removeBtn:hover {
+    background-color: #c0392b;
+}
+QPushButton#m_updateBtn {
+    background-color: #fdcb6e;
+    color: #2d3436;
+}
+QPushButton#m_updateBtn:hover {
+    background-color: #f9b324;
+}
+QPushButton#m_backBtn {
+    background-color: white;
+    color: #2d3436;
+    border: 2px solid #dfe6e9;
+}
+QPushButton#m_backBtn:hover {
+    background-color: #f5f6fa;
+}
+QPushButton#m_historyBtn {
+    background-color: #6c5ce7;
+    color: white;
+}
+QPushButton#m_historyBtn:hover {
+    background-color: #5f4dd0;
+}
+QLabel#m_totalLabel {
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00b894;
+}</string>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>669</width>
+      <height>289</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

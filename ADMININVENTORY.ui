@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminInventory</class>
+ <widget class="QWidget" name="AdminInventory">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>539</width>
+    <height>587</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Desktop/logo.png.png</normaloff>../../Desktop/logo.png.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: whitesmoke;
+font-family: 'Segoe UI', Arial; 
+font-size: 10pt;
+
+QLabel {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+} /* Added this closing brace */
+
+QFrame {
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background-color: #ffffff;
+}</string>
+  </property>
+  <widget class="QPushButton" name="btnDelete">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>131</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #f44336; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 5px;
+    border: 1px solid #d32f2f;
+    padding: 5px;
+}
+
+QPushButton:hover {
+    background-color: #da190b;
+}</string>
+   </property>
+   <property name="text">
+    <string>Delete Product</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAddProduct">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>520</y>
+     <width>121</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #4CAF50; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 5px;
+    border: 1px solid #388E3C;
+    padding: 5px;
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* Slightly darker green when mouse is over it */
+}</string>
+   </property>
+   <property name="text">
+    <string>Add Product</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listProducts">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>300</y>
+     <width>231</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget {
+    background-color: #ffffff;
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: &quot;Segoe UI&quot;, Arial;
+    font-size: 11pt;
+    color: #333333;
+}
+
+/* This changes how the item looks when you click it */
+QListWidget::item:selected {
+    background-color: #e3f2fd; /* Light blue highlight */
+    color: #1a237e;            /* Navy blue text when selected */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* This adds a little space between the products */
+QListWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>261</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Shadow::Raised</enum>
+   </property>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>231</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    font-weight: bold;
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    margin-top: 20px; /* Leaves space for the title */
+    padding-top: 10px;
+    background-color: #ffffff; /* White background inside the box */
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center; /* Centers the title &quot;Add New Product&quot; */
+    padding: 0 10px;
+    color: #1a237e; /* Matches your Logo Navy Blue */
+}</string>
+    </property>
+    <property name="title">
+     <string>Add New Product</string>
+    </property>
+    <widget class="QLineEdit" name="txtName">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Enter item name...</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtID">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>id: e.g 101</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtPrice">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>160</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Price: 0.00</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-20</y>
+     <width>261</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background: transparent; /* Makes sure there is no white box around the logo */
+    padding: 10px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="Resource.qrc">:/logo.png.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>280</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #757575;            /* Professional light grey */
+    font-size: 9pt;            /* Smaller, subtle size */
+    font-weight: bold;         /* Bold to make it look like a header */
+    text-transform: uppercase; /* Ensures all caps for a clean look */
+    letter-spacing: 1px;       /* Adds a modern, airy feel to the text */
+    background: transparent;
+    padding-left: 5px;         /* Aligns it with the text inside the list */
+}</string>
+   </property>
+   <property name="text">
+    <string>ID | PRODUCT NAME | PRICE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLogout">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>540</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #f44336; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 5px;
+    border: 1px solid #d32f2f;
+    padding: 5px;
+}
+
+QPushButton:hover {
+    background-color: #da190b;
+}</string>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>btnDelete</zorder>
+  <zorder>btnAddProduct</zorder>
+  <zorder>listProducts</zorder>
+  <zorder>frame</zorder>
+  <zorder>label_2</zorder>
+  <zorder>btnLogout</zorder>
+ </widget>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
